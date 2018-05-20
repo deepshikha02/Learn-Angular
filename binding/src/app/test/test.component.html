@@ -1,0 +1,19 @@
+<h2>
+  Good going {{name}}!!
+</h2>
+<h2>
+  {{2 + 2}}
+</h2>
+<h2>{{"Welcome " + name}}</h2>
+<h2>{{name.length}}</h2>
+<h2>{{greetUser()}}</h2>
+<h2>{{url}}</h2>
+<!-- The concept of writing variables, strings with the double curly braces is called interpolation -->
+<!-- Build in js methods and methods defined in the component class can be written within curly braces -->
+
+<!-- PROPERTY BINDING -->
+<input [id]="myId" value="Deeps">
+<input value="Deepshikha" [disabled]=isDisabled>
+<!-- alternate way for property binding apart from []
+is by using bind-<property_name>-->
+<input bind-disabled=isDisabled value="Deepshikha Mohanta">
