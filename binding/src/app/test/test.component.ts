@@ -58,4 +58,12 @@ export class TestComponent implements OnInit {
     "text-style" : this.isSpecial
   };
 
+  // inline styles can also be dynamically bound using variables
+  public inlineStyleColor = "pink";
+  // to apply multiple inline style properties, use ngStyle directive
+  public styleProperties = {
+    color : "orange",
+    fontStyle : "italic"
+  };
+
 }

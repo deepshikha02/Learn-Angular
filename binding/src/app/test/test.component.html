@@ -33,3 +33,13 @@ In presence of a binding class attribute, the regular class attribute is of no u
 <h2 [ngClass]="messageClasses">ngClass Directive</h2>
 <!-- ngClass identifies that all the classes inside the object messageClasses need to be applied to the specific element -->
 <!-- ngClass checks which classes wihin the object are set to true. All the classes that is set to true are applied.  -->
+
+<!-- INLINE STYLE BINDING -->
+<!-- style properties can also be bound the same way as style classes -->
+<h2 [style.color]="'blue'">Inline Style Property Bound</h2>
+<!-- style properties can also be set in the form of an expresssion -->
+<h2 [style.color]="isError ? 'red' : 'green'">Inline Style set with expression</h2>
+<!-- inline styles can also be dynamically bound using variables -->
+<h2 [style.color]="inlineStyleColor">Inline styles set with variable</h2>
+<!-- applying inline style using ngStyle directive -->
+<h2 [ngStyle]="styleProperties">Inline Style using ngStyle Directive</h2>
