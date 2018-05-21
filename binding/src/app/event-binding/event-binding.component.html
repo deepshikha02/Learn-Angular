@@ -9,3 +9,9 @@ $event is the special variable for the event in angular -->
 
 <!-- functions can be directly written if they are small instead of declaring another event handler -->
 <button (click)="clickText='inline click text'">function written in the button itself</button>
+
+<h2>TEMPLATE REFERENCE VARIABLES</h2>
+<!-- Sometimes you need to pick values in the screen and use it in the code -->
+<!-- we can give a reference to an html element and all of its DOM properties into another element using # -->
+<input #myInput type="text">
+<button (click)="onClickLogInput(myInput.value)">click to log input value</button>

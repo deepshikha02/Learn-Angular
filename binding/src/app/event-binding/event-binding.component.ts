@@ -23,4 +23,8 @@ export class EventBindingComponent implements OnInit {
     console.log(e);
   }
 
+  onClickLogInput(e){
+    console.log(e);
+  }
+
 }
