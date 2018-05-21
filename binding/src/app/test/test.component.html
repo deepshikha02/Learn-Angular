@@ -17,3 +17,19 @@
 <!-- alternate way for property binding apart from []
 is by using bind-<property_name>-->
 <input bind-disabled=isDisabled value="Deepshikha Mohanta">
+
+<!-- CLASS BINDING -->
+<!-- This can be done in 2 ways. 1. directly putting the class name as it is normally done. 
+2. [] property Binding -->
+<h2 bind-class=successClass>Class Binding</h2>
+<!-- use either a regular class attribute or a binding class attribute but not both together. 
+In presence of a binding class attribute, the regular class attribute is of no use.  -->
+
+<!-- You can also expression bind a class. The resulting expression should result in true/false -->
+<h2 [class.text-error]= "isError">Expression Binding in Class</h2>
+
+<!-- ngClass directive. In case you need to manipulate multiple classes that are applied to the html element -->
+<!-- Directive is an html element that is provided by angular -->
+<h2 [ngClass]="messageClasses">ngClass Directive</h2>
+<!-- ngClass identifies that all the classes inside the object messageClasses need to be applied to the specific element -->
+<!-- ngClass checks which classes wihin the object are set to true. All the classes that is set to true are applied.  -->

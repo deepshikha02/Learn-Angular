@@ -39,4 +39,23 @@ export class TestComponent implements OnInit {
 
   // Example : The disabled property of Input field. Which cannot be set with a string. 
   public isDisabled = true;
+
+  // CLASS BINDING : the name of the class is assigned to some variable and the we can use property binding
+  public successClass = "text-success";
+
+  // Class binding can also be done using expressions. Whether the class should be applied or not depends on 
+  // what is the evaluation of the expression. The evaluation needs to be a boolean
+  public isError = true;
+
+  // This works fine in case of single class. In case multiple classes need to be applied,
+  //  angular comes with an ng class directive
+  // DIRECTIVE : html attribute that is provided by angular
+
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success" : !this.isError,
+    "text-error" : this.isError,
+    "text-style" : this.isSpecial
+  };
+
 }
