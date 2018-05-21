@@ -1,0 +1,11 @@
+<!-- EVENT BINDING -->
+<!-- Lets us capture any DOM events and perform actions -->
+<button (click)="onClick()">Click me!!</button>
+<h2>{{clickText}}</h2>
+
+<!-- If you want to pass the event that occurs, pass $event on the event handler.
+$event is the special variable for the event in angular -->
+<button (click)="onClickPassEvent($event)">pass event on click</button>
+
+<!-- functions can be directly written if they are small instead of declaring another event handler -->
+<button (click)="clickText='inline click text'">function written in the button itself</button>
