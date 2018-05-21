@@ -27,4 +27,8 @@ export class EventBindingComponent implements OnInit {
     console.log(e);
   }
 
+  // TWO WAY BINDING
+  public inputValue = "";
+  // Two way binding can be achieved using ngModel
+
 }

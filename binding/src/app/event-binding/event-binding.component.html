@@ -15,3 +15,13 @@ $event is the special variable for the event in angular -->
 <!-- we can give a reference to an html element and all of its DOM properties into another element using # -->
 <input #myInput type="text">
 <button (click)="onClickLogInput(myInput.value)">click to log input value</button>
+
+<!-- TWO WAY BINDING -->
+<h2>TWO WAY BINDING</h2>
+<input type="text" [(ngModel)]="inputValue">
+<!-- [] is for binding from class to template just like property binding; 
+  () for binding from template to class just like event binding -->
+<p>{{inputValue}}</p>
+<!-- Two way binding can be achieved using ngModel -->
+<!-- ngModel directive is in a separate module called the forms module. 
+To use ngModel, the forms model needs to be imported.  -->
