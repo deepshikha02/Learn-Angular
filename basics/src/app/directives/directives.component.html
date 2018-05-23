@@ -1,0 +1,20 @@
+<h2 *ngIf="true">Checking on ngIf</h2>
+<!-- property can also be bound to the ngIf directive -->
+<h2 *ngIf="ngIfValue">ngIf with a property</h2>
+
+<!-- ngIf also has an else block -->
+<h2 *ngIf="ngIfValue; else elseBlock">ngIf with a property</h2>
+<!-- adding ng-template for the else block -->
+<!-- ng-template tag is like the container for the entire set of elements that need to be added in the DOM for else -->
+<ng-template #elseBlock> 
+  <h2>else block for ngIf</h2>
+</ng-template>
+
+<!-- ngIf can also be put in a separate tag instead of making the directive inline -->
+<div *ngIf="ngIfCondition; then thenBlockCondition; else elseBlockCondition"></div>
+<ng-template #thenBlockCondition>
+  <h2>then conditon true</h2>
+</ng-template>
+<ng-template #elseBlockCondition>
+  <h2> else condition true</h2>
+</ng-template>
