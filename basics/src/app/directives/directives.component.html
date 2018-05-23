@@ -18,3 +18,12 @@
 <ng-template #elseBlockCondition>
   <h2> else condition true</h2>
 </ng-template>
+
+<!-- ngSwitch is like a normal switch condition except that it renders DOM elements instead of executing lines of code -->
+<div [ngSwitch]="ngSwitchColor">
+  <h2 *ngSwitchCase="'red'">picked color is red</h2>
+  <h2 *ngSwitchCase="'blue'">picked color is blue</h2>
+  <h2 *ngSwitchCase="'green'">picked color is green</h2>
+  <!-- a default case can also be added -->
+  <h2 *ngSwitchDefault>default case</h2>
+</div>

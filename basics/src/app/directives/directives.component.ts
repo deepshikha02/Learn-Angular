@@ -31,4 +31,7 @@ export class DirectivesComponent implements OnInit {
 
   public ngIfCondition =false;
 
+  // ngSwitch directive
+  public ngSwitchColor = "pink";
+
 }
