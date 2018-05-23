@@ -1,0 +1,41 @@
+<!-- Pipes allow us to transform data before displaying it in the view. -->
+<!-- Pipe operator transforms data only for the view and not for the actual data -->
+<p>{{name}}</p>
+
+<!-- string pipes -->
+<p>using the lowercase pipe : {{name | lowercase}}</p>
+<p>using the uppercase pipe : {{name | uppercase}}</p>
+<p>using the titlecase pipe : {{name | titlecase}}</p>
+<p>using the slice pipe : {{name | slice:2}}</p>
+<p>using the slice pipe to take out a part of string : {{name | slice:2:5}}</p> <!-- this does not include the upper limit -->
+<p>using the json pipe for string representation of a json : {{person | json}}</p>
+
+<!-- number pipes -->
+<p>number pipe : {{3.145 | number:'1.2-3'}}</p>
+<!-- format : number:'<min_number_of_integer_digits>.<min_number_of_digits_after_decimal>-<max_number_of_digits_after_decimal>' -->
+<p>{{3.145 | number:'3.5-7'}}</p>
+
+<!-- percent pipe -->
+<p>percent pipe : {{0.25 | percent}}</p>
+
+<!-- currency pipe -->
+<p>currency pipe : {{0.25 | currency}}</p> <!-- default value is $ -->
+<!-- but country can be mentioned as a parameter -->
+<!-- format : currency:<currency_code> -->
+  <p>currency pipe in different currency : {{1.23 | currency:'INR'}}</p>
+  <p>currency pipe in different currency code : {{1.23 | currency:'GBP'}}</p>
+  <!-- to show the currency code itself and not the symbol for currency -->
+  <!-- format : currency:<currency_code>:'code' -->
+      <p>{{1.23 | currency:'GBP':'code'}}</p>
+
+<!-- date pipes -->
+<p>date pipe : {{date}}</p>
+<p>short date time pipe : {{date | date:'short'}}</p>
+<p>short date pipe : {{date | date:'shortDate'}}</p>
+<p>short time pipe : {{date | date:'shortTime'}}</p>
+<p>medium date time pipe : {{date | date:'medium'}}</p>
+<p>medium date pipe : {{date | date:'mediumDate'}}</p>
+<p>medium time pipe : {{date | date:'mediumTime'}}</p>
+<p>long date time pipe : {{date | date:'long'}}</p>
+<p>long date pipe : {{date | date:'longDate'}}</p>
+<p>long time pipe : {{date | date:'longTime'}}</p>
