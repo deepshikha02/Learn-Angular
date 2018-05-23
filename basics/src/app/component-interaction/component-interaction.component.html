@@ -1,0 +1,6 @@
+<h2>parent data : {{parentData}}</h2> <!-- This property might not be seen coz there are 2 @Input() decorators taking the same value -->
+<h2>parent data as alias : {{propertyFromParent}}</h2>
+
+<!-- creating a button so that on the click of that data is sent from the child component
+to the parent component -->
+<button (click)="onClickSendDataToParent()">click to send data to parent</button>
