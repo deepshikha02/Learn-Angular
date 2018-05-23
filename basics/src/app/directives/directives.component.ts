@@ -34,4 +34,7 @@ export class DirectivesComponent implements OnInit {
   // ngSwitch directive
   public ngSwitchColor = "pink";
 
+  // ngFor directive
+  public ngForArray = ["red","blue","green","yellow"];
+
 }

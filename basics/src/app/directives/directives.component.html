@@ -19,7 +19,7 @@
   <h2> else condition true</h2>
 </ng-template>
 
-<!-- ngSwitch is like a normal switch condition except that it renders DOM elements instead of executing lines of code -->
+<!-- ngSwitch is like a normal switch condition except that it renders DOM elements instead of executing logic -->
 <div [ngSwitch]="ngSwitchColor">
   <h2 *ngSwitchCase="'red'">picked color is red</h2>
   <h2 *ngSwitchCase="'blue'">picked color is blue</h2>
@@ -27,3 +27,22 @@
   <!-- a default case can also be added -->
   <h2 *ngSwitchDefault>default case</h2>
 </div>
+
+<!-- ngFor is like a normal for except that it renders DOM elements in a loop instead of executing logic -->
+<div *ngFor="let item of ngForArray">
+  <h2 [style.color]="item">{{item}}</h2>
+</div>
+<!-- also index can be added this way -->
+<div *ngFor="let item of ngForArray; index as i">
+  <h2>{{i}} ... {{item}}</h2>
+</div>
+<!-- ngFor also comes with few other keywords -->
+<!-- first and last-->
+<div *ngFor="let item of ngForArray; index as i; first as f; last as l">
+    <h2>first {{f}}, {{i}} ... {{item}}, last {{l}}</h2>
+  </div>
+
+  <!-- odd and event -->
+  <div *ngFor="let item of ngForArray; odd as o; even as e">
+    <p>odd {{o}} {{item}}, even {{e}}</p>
+  </div>
