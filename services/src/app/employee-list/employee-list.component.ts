@@ -9,6 +9,7 @@ import { EmployeeService } from 'src/app/employee.service';
 export class EmployeeListComponent implements OnInit {
 
   public employees = [];
+  public errorMessage;
   // Service dependency for the particular component is declared in the constructor
   constructor(private _employeeService:EmployeeService) { }
 
@@ -18,7 +19,8 @@ export class EmployeeListComponent implements OnInit {
 
     // subscribing to the observable while making the http call
     this._employeeService.getEmployees()
-    .subscribe(data => this.employees = data);
+    .subscribe(data => this.employees = data,
+              error => this.errorMessage = error);
   }
 
 }
