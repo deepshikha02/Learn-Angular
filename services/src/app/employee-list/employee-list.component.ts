@@ -14,7 +14,11 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {
     // the instance of the employee service needs to be called on init
-    this.employees = this._employeeService.getEmployees();
+    // this.employees = this._employeeService.getEmployees();
+
+    // subscribing to the observable while making the http call
+    this._employeeService.getEmployees()
+    .subscribe(data => this.employees = data);
   }
 
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { IEmployee } from 'src/app/employee';
+import { Observable } from 'rxjs/internal/observable';
 /**Injectable means that this service itself might have injected dependencies. */
 // Component classes dont have @Injectable since they yhave the @Component decorator which informs angular that it might 
 // have dependecies and make use of the dependency injection system.
@@ -8,36 +10,14 @@ import { Injectable } from '@angular/core';
 })
 export class EmployeeService {
 
-  constructor() { }
+  private _url = "/assets/data/employees.json";
+  constructor(private http:HttpClient) { }
+  // http client is imported here
 
-  getEmployees(){
-    return [
-      {
-        "key" : "1",
-        "name" : "Deepshikha Mohanta",
-        "age" : 26
-      },
-      {
-        "key" : "2",
-        "name" : "Akash Singh",
-        "age" : 27
-      },
-      {
-        "key" : "3",
-        "name" : "Rishabh Srivastav",
-        "age" : 27
-      },
-      {
-        "key" : "4",
-        "name" : "Huma Perween",
-        "age" : 29
-      },
-      {
-        "key" : "5",
-        "name" : "Priya Agrawal",
-        "age" : 26
-      }
-    ];
+  getEmployees(): Observable<IEmployee[]>{
+    // step 1 : make the get request
+    return this.http.get<IEmployee[]>(this._url);
+    // step 2 : cast the response into an array. The response is returned in an Observable which has to be cast into an employee interface.
   }
 
   /**A dependency injector is a design pattern as well as a framework provided by Angular  */
