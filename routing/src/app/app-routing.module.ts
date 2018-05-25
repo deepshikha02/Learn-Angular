@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DepartmentListComponent } from 'src/app/department-list/department-list.component';
 import { EmployeeListComponent } from 'src/app/employee-list/employee-list.component';
 import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.component';
+import { DepartmentDetailsComponent } from 'src/app/department-details/department-details.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
     component: EmployeeListComponent
   },
   {
+    path : "departments/:id",
+    component : DepartmentDetailsComponent
+  },
+  {
     path: "**", //this is for all page not found 
     component: PageNotFoundComponent
   }
@@ -31,4 +36,9 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [DepartmentListComponent,EmployeeListComponent];
+export const routingComponents = [
+  DepartmentListComponent,
+  EmployeeListComponent,
+  PageNotFoundComponent,
+  DepartmentDetailsComponent
+];
