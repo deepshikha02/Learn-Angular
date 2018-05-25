@@ -9,7 +9,7 @@ const routes: Routes = [
     path: "", //default route
     // component: DepartmentListComponent
     redirectTo: "/departments",
-    pathMatch:'full' //if '' is a prefix to the route, navigate to /departments
+    pathMatch:'full' //if "" is a prefix to the route, navigate to /departments
   },
   {
     path : "departments",
