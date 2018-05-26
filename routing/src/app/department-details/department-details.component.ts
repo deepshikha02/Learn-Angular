@@ -9,8 +9,17 @@ import { convertToParamMap } from '@angular/router/src/shared';
       department-details works!
     </p>
     <h2>{{departmentId}}</h2>
-    <button (click)="goPrevious()">previous department</button>
-    <button (click)="goNext()">next department</button>
+
+    <p>
+      <button (click)="showOverview()" >overview</button>
+      <button (click)="showContact()">contact</button>
+    </p>
+    <router-outlet></router-outlet>
+
+    <p>
+      <button (click)="goPrevious()">previous department</button>
+      <button (click)="goNext()">next department</button>
+    </p>
     <div>
       <button (click)="goBackToList()">Go back to list</button>
     </div>
@@ -56,6 +65,14 @@ export class DepartmentDetailsComponent implements OnInit {
     // relative path route
     this.router.navigate(['../',{id : selectedId}], {relativeTo:this.route}); //go back one segment in the url
 
+  }
+
+  showOverview(){
+    this.router.navigate(['overview'],{relativeTo:this.route});
+  }
+
+  showContact(){
+    this.router.navigate(['contact'],{relativeTo:this.route});
   }
 
 }
