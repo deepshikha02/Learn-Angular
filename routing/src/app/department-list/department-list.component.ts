@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
       department-list works!
     </p>
     <ul *ngFor="let department of departments">
-      <button (click)="onSelect(department)" >{{department.id}} --> {{department.name}}</button>
+       <button [style.color]="isSelected(department) ? 'red' : 'blue'" (click)="onSelect(department)" >{{department.id}} --> {{department.name}}</button>
     </ul>
   `,
   styles: []
@@ -23,9 +23,15 @@ export class DepartmentListComponent implements OnInit {
     {"id" : 5, name : "Bootstrap"}
   ];
 
-  constructor(private router:Router) { }
+  public selectedId;
+
+  constructor(private router:Router, private route : ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params : ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.selectedId = id;
+    });
   }
 
   onSelect(department){
@@ -35,6 +41,10 @@ export class DepartmentListComponent implements OnInit {
         '/departments',
         department.id
       ]);
+  }
+
+  isSelected(department){
+    return department.id === this.selectedId;
   }
 
 }

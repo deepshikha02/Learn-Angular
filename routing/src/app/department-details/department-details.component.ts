@@ -11,6 +11,9 @@ import { convertToParamMap } from '@angular/router/src/shared';
     <h2>{{departmentId}}</h2>
     <button (click)="goPrevious()">previous department</button>
     <button (click)="goNext()">next department</button>
+    <div>
+      <button (click)="goBackToList()">Go back to list</button>
+    </div>
   `,
   styles: []
 })
@@ -39,6 +42,15 @@ export class DepartmentDetailsComponent implements OnInit {
   goNext(){
     let nextId = this.departmentId + 1;
     this.router.navigate(['/departments', nextId]);
+  }
+
+  goBackToList(){
+    let selectedId  = this.departmentId || null;
+    // passing an optional param
+    this.router.navigate(['/departments', {
+      id : selectedId
+    }]);
+
   }
 
 }
