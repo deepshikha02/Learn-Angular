@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router, ParamMap} from '@angular/router';
+import { convertToParamMap } from '@angular/router/src/shared';
 
 @Component({
   selector: 'app-department-details',
@@ -8,17 +9,36 @@ import {ActivatedRoute} from '@angular/router';
       department-details works!
     </p>
     <h2>{{departmentId}}</h2>
+    <button (click)="goPrevious()">previous department</button>
+    <button (click)="goNext()">next department</button>
   `,
   styles: []
 })
 export class DepartmentDetailsComponent implements OnInit {
 
   public departmentId;
-  constructor(private route : ActivatedRoute) { }
+  constructor(private route : ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.departmentId = id;
+    // SNAPSHOT APPROACH
+    // let id = parseInt(this.route.snapshot.paramMap.get('id'));
+    // this.departmentId = id;
+
+    // PARAM MAP APPROACH
+    this.route.paramMap.subscribe((params : ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.departmentId = id;
+    });
+  }
+
+  goPrevious(){
+    let previousId = this.departmentId - 1;
+    this.router.navigate(['/departments', previousId]);
+  }
+
+  goNext(){
+    let nextId = this.departmentId + 1;
+    this.router.navigate(['/departments', nextId]);
   }
 
 }
