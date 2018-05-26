@@ -47,9 +47,14 @@ export class DepartmentDetailsComponent implements OnInit {
   goBackToList(){
     let selectedId  = this.departmentId || null;
     // passing an optional param
-    this.router.navigate(['/departments', {
-      id : selectedId
-    }]);
+
+    //absolute path route
+    // this.router.navigate(['/departments', {
+    //   id : selectedId
+    // }]);
+
+    // relative path route
+    this.router.navigate(['../',{id : selectedId}], {relativeTo:this.route}); //go back one segment in the url
 
   }
 
